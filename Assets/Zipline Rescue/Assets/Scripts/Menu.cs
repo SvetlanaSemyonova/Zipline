@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
             levelButtons.interactable = false;
         }
 
-        for (var i = 0; i < gamemanager.Instance.levelno; i++)
+        for (var i = 0; i < gamemanager.Instance.LevelNumber; i++)
         {
             LevelSelect.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
             var levelButtons = LevelSelect.transform.GetChild(i).GetComponent<Button>();

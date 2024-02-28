@@ -57,7 +57,7 @@ public class joinpeople : MonoBehaviour
             follow = false;
             gamemanager.Instance.reachedpeople.Add(transform);
             gamemanager.Instance.peoplereached++;
-            gamemanager.Instance.lastposchange(gamemanager.Instance.childs, gamemanager.Instance.lastpos);
+            gamemanager.Instance.ChangeLastPosition(gamemanager.Instance.childs, gamemanager.Instance.lastpos);
             gamemanager.Instance.childs++;
             anim.SetBool("climb", false);
             gamemanager.Instance.posX = transform.position.x;

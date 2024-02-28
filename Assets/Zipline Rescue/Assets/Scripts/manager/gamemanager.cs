@@ -6,41 +6,42 @@ using UnityEngine.SceneManagement;
 
 public class gamemanager : MonoBehaviour
 {
-    public int levelno;
-    public Transform ropeparent;
+    public static gamemanager Instance;
+
     [HideInInspector] public List<Vector3> wapoints = new List<Vector3>();
     [HideInInspector] public GameObject[] peoples = new GameObject[10];
-    public bool locked = false;
-    public static gamemanager Instance;
     [HideInInspector] public List<Transform> peopleparent = new List<Transform>();
     [HideInInspector] public List<Transform> reachedpeople = new List<Transform>();
     [HideInInspector] public Transform people;
-    float time;
-    public int childs, spawnpeople;
     [HideInInspector] public int spawnedno, peoplereached;
     [HideInInspector] public float posX, posY;
-    bool limitreached, limitreached1;
-
     [HideInInspector] public Transform lastpos;
 
-    public Transform startpos;
-    public GameObject blood;
+    public int LevelNumber;
     public int recived;
-    public Text reachedtext;
+    public int childs, spawnpeople;
     public int peopletofinish;
-    bool level;
-    bool levelpass;
-    public GameObject endlevel, completelevel, effect;
-    public Text levelshowtext;
-    int levelshow, retryno;
-    public bool laser = false;
-    public GameObject exlpode_effect;
-    private GameObject retrybuttonprefab;
     public int playerssent = 0;
+    public Transform ropeparent;
+    public Transform startpos;
+    public Text reachedtext;
+    public Text levelshowtext;
+    public bool locked;
+    public bool laser;
+    public GameObject blood;
+    public GameObject exlpode_effect;
+    public GameObject endlevel, completelevel, effect;
+
+    private float time;
+    private bool level;
+    private bool levelpass;
+    private bool limitreached, limitreached1;
+    private int levelshow, retryno;
+    private GameObject retrybuttonprefab;
 
     private void Awake()
     {
-        levelno = PlayerPrefs.GetInt("levelno", 1);
+        LevelNumber = PlayerPrefs.GetInt("LevelNumber", 1);
         levelshow = SceneManager.GetActiveScene().buildIndex;
         retryno = SceneManager.GetActiveScene().buildIndex;
         Instance = this;
@@ -58,43 +59,41 @@ public class gamemanager : MonoBehaviour
 
         retrybuttonprefab = GameObject.Find("retrybutton");
 
-        createpeople();
-        checkpeople();
+        CreatePeople();
+        Check();
         lastpos = GameObject.Find("lastpos").GetComponent<Transform>();
         completelevel.SetActive(false);
         endlevel.SetActive(false);
         effect.SetActive(false);
+        levelshowtext.text = "L e v e l  " + levelshow;
     }
 
     private void Update()
     {
-        levelshowtext.text = "L e v e l  " + levelshow;
-
         reachedtext.text = reachedpeople.Count + "/" + peopletofinish;
-
 
         if (reachedpeople.Count == peopletofinish || reachedpeople.Count >= peopletofinish)
         {
             retrybuttonprefab.SetActive(false);
-            levelpassmethod();
+            PassLevel();
             completelevel.SetActive(true);
             effect.SetActive(true);
 
             if (levelpass == true)
             {
-                loadlevel();
+                LoadLevel();
                 levelpass = false;
             }
         }
         else if (recived <= 0 && reachedpeople.Count < peopletofinish && playerssent == spawnpeople)
         {
-            retrylevel();
+            Retry();
 
             endlevel.SetActive(true);
         }
     }
 
-    public void lastposchange(int i, Transform pos)
+    public void ChangeLastPosition(int i, Transform pos)
     {
         if (i == 0)
         {
@@ -129,23 +128,18 @@ public class gamemanager : MonoBehaviour
                     posY = pos.position.y + .1f;
                     pos.position = new Vector3(posX + .1f, posY, .08f);
                     limitreached1 = true;
-                    Debug.Log("next x");
 
                     reachedpeople[i].transform.position = new Vector3(posX, posY, 0.8f);
                 }
                 else if (limitreached1)
                 {
-                    Debug.Log("next x_continous");
                     reachedpeople[i].transform.position = new Vector3(posX + .1f, posY, 0.8f);
                 }
             }
         }
-
-
-        Debug.Log(pos.position);
     }
 
-    void createpeople()
+    void CreatePeople()
     {
         for (var i = 0; i < spawnpeople; i++)
         {
@@ -161,7 +155,7 @@ public class gamemanager : MonoBehaviour
                     new Vector3(startpos.position.x - .1f * 10, startpos.position.y, startpos.position.z);
             }
 
-            if (levelno < 1)
+            if (LevelNumber < 1)
             {
             }
 
@@ -172,56 +166,50 @@ public class gamemanager : MonoBehaviour
             if (i == 0)
             {
                 go = Instantiate(select, startpos.position, startpos.rotation);
-                Debug.Log("one");
             }
             else
             {
                 go = Instantiate(select, startpos.position, startpos.rotation);
-                Debug.Log("greater than one..");
             }
 
             go.transform.SetParent(people);
         }
     }
 
-    public void timer()
+    public void HandleTimer()
     {
         time -= Time.deltaTime;
         if (time <= 0)
         {
             if (spawnedno < peopleparent.Count)
             {
-                activepeople(spawnedno);
+                ActivatePeople(spawnedno);
                 time = .1f;
-
-                Debug.Log("spawn people");
             }
         }
     }
 
 
-    void activepeople(int i)
+    void ActivatePeople(int i)
     {
-        peopleparent[i].gameObject.GetComponent<follow>().enabled = true;
-
-        Debug.Log("Come On...!!");
+        peopleparent[i].gameObject.GetComponent<Follow>().enabled = true;
         spawnedno++;
     }
 
 
-    void checkpeople()
+    void Check()
     {
         foreach (Transform addpeople in people)
         {
             peopleparent.Add(addpeople);
             for (var i = 0; i < peopleparent.Count; i++)
             {
-                peopleparent[i].gameObject.GetComponent<follow>().enabled = false;
+                peopleparent[i].gameObject.GetComponent<Follow>().enabled = false;
             }
         }
     }
 
-    public void calculate()
+    public void Calculate()
     {
         var temp = new List<Transform>();
         foreach (Transform trans in ropeparent)
@@ -240,7 +228,7 @@ public class gamemanager : MonoBehaviour
         }
     }
 
-    void levelpassmethod()
+    void PassLevel()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -248,7 +236,7 @@ public class gamemanager : MonoBehaviour
         }
     }
 
-    public void retrylevel()
+    public void Retry()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -262,12 +250,11 @@ public class gamemanager : MonoBehaviour
         SceneManager.LoadScene(retryno);
     }
 
-    public void loadlevel()
+    public void LoadLevel()
     {
-        levelno++;
-        SceneManager.LoadScene(levelno);
-        PlayerPrefs.SetInt("levelno", levelno);
+        LevelNumber++;
+        SceneManager.LoadScene(LevelNumber);
+        PlayerPrefs.SetInt("LevelNumber", LevelNumber);
         FindObjectOfType<AdManager>().ShowAdmobInterstitial();
-        Debug.Log("adshow");
     }
 }

@@ -28,12 +28,12 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag("people"))
         {
             BoxCollider2D box;
-            follow followscript;
-            if (hit.transform.GetComponent<follow>() != null)
+            Follow followscript;
+            if (hit.transform.GetComponent<Follow>() != null)
             {
                 box = hit.collider.GetComponent<BoxCollider2D>();
                 box.enabled = false;
-                followscript = hit.collider.GetComponent<follow>();
+                followscript = hit.collider.GetComponent<Follow>();
                 followscript.movespeed = 0;
             }
 

@@ -9,7 +9,6 @@ public class playerscript : MonoBehaviour
     public GameObject peopleprefab;
     public Transform poeple, hook;
     public Animator circle;
-    public bool touched;
     public GameObject rope;
     int count = 0;
 
@@ -30,7 +29,7 @@ public class playerscript : MonoBehaviour
                 var flag = true;
                 if (flag)
                 {
-                    gamemanager.Instance.timer();
+                    gamemanager.Instance.HandleTimer();
                     gamemanager.Instance.locked = true;
                     flag = false;
                 }
@@ -39,7 +38,7 @@ public class playerscript : MonoBehaviour
 
         if (gamemanager.Instance.locked)
         {
-            gamemanager.Instance.calculate();
+            gamemanager.Instance.Calculate();
         }
 
         mousecntrl();
@@ -75,7 +74,6 @@ public class playerscript : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        touched = true;
         var mousepos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
         var objectpos = Camera.main.ScreenToWorldPoint(mousepos);
         transform.position = objectpos;
