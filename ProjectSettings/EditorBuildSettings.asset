@@ -1,0 +1,311 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/menu.unity
+    guid: 8d368bae101ad554d8d529585d12780c
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level1.unity
+    guid: 9c882090306fde442935ffaef0bb004a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level2.unity
+    guid: 758c7a50645bb5e4fbdccb9642d79601
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level3.unity
+    guid: 4209aa380a4c9e544abeb9f85c934979
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level4.unity
+    guid: 92c69051b9136114bae258dea26f5727
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level5.unity
+    guid: a06e8bd3777bdd2468570001823b5c15
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level6.unity
+    guid: 72cb3b2a26e657a47a375969eebd3fdb
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level7.unity
+    guid: 93a73c2939660b545bee31908500ad1b
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level8.unity
+    guid: e99f6e666b4f4f14ab4bd96c5c8cdddd
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level9.unity
+    guid: 313492829b145664197db54bcd74a8ef
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level10.unity
+    guid: 8b94af6c2bb4b3649af115fb6f964f1c
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level11.unity
+    guid: f2a976a2e26bae1448d65684646000ce
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level12.unity
+    guid: e0f0a4bb268727949a6c38963838e434
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level13.unity
+    guid: 39283ecdcf3626043b1ffd31a28370e7
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level14.unity
+    guid: 436639d3703e6364dab6a0e0077e00eb
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level15.unity
+    guid: 5eef3a446619ce24d89d9a4eac7cef43
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level16.unity
+    guid: 5778440fb6468c0409aaa5e5190716dc
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level17.unity
+    guid: 3a6e9bc1c2bc2f74189b3aaebafdb3e3
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level18.unity
+    guid: 774b562389bea9249b97eca56fe5f722
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level19.unity
+    guid: f0752c8dcdfe14641b4efcea70b813da
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level20.unity
+    guid: 14ef6a5cd7261ef43b635d09a684a76e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level21.unity
+    guid: a2e1d885ba6300843930576e5c440016
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level22.unity
+    guid: 63f62d8f4217f91469140f2dda9a11aa
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level23.unity
+    guid: 866a55664e7a35442b9d961bf2b56ea4
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level24.unity
+    guid: 2e0dc5f5834519845a0bba722c6cce31
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level25.unity
+    guid: df230f5da81b34643bcd0643893d3875
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level26.unity
+    guid: c0beac804b64a0a419f4491292a83b0c
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level27.unity
+    guid: d7fd7540a9a2a2b4097f830299b52459
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level28.unity
+    guid: 6d87053f4c519904bb76967e77f44e7d
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level29.unity
+    guid: 83c96afa946c1b244b98d5d4927fd197
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level30.unity
+    guid: b572b4d50f54ce740a7e45b7bf027a27
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level31.unity
+    guid: 65117ea2ea0c4a54ba2b461a3accd9bf
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level32.unity
+    guid: 3ee71a47240045c4a8529d232169b48e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level33.unity
+    guid: 24be1b59ed031e143b095426e4bcc7cb
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level34.unity
+    guid: 7091d83fb42b43c4db8fb46eb0a9ed6a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level35.unity
+    guid: 991cb2976feadcf4e86b107f652746d1
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level36.unity
+    guid: ba76d8d06b155fd45b545c88ad8609c3
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level37.unity
+    guid: 55554c6b328317849b8884dd60c0a1da
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level38.unity
+    guid: acef915a5d1382042828d7c81121816e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level39.unity
+    guid: 923bdb2b2bf258a43aa5a3afa839bbe1
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level40.unity
+    guid: 84f7f6bd01d57594bb3093f70fe0f61b
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level41.unity
+    guid: c4f6cb8c8743ad6419d43e021274701e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level42.unity
+    guid: b098485b4bdbf334eb958f3dec80675e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level43.unity
+    guid: 493dc8364061fbf499b51ebd6c2ad2e9
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level44.unity
+    guid: 6e5ef52fe5ade1e45a0085a4a9c4d528
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level45.unity
+    guid: cb03458a8cc8dcf4e9e50b3d1259670b
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level46.unity
+    guid: db67533a6f887354baacf4e85af9b727
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level47.unity
+    guid: a22145180e7f05e4cb6562a98ebc3a1a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level48.unity
+    guid: 4f5d14ec7241e734a9578ede0bbbec8a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level49.unity
+    guid: cba10223e71ba1549969135a2581f714
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level50.unity
+    guid: d8289c43f1e537944a313ba821271933
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level51.unity
+    guid: 7dfbdd1da19bf674199a7639c3b90579
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level52.unity
+    guid: bf7e458c1d101274b9ce511f8ac66c6a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level53.unity
+    guid: 04373e92ee2060f4cb7e07c5bab92381
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level54.unity
+    guid: 6e23dcb24753f51439b69104a3bf45d0
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level55.unity
+    guid: 7b5ae65a621bc26469a05e860bdacb07
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level56.unity
+    guid: b2788659aa2debe4795df1f623e4dc04
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level57.unity
+    guid: 06fffaf78d5a5bf4f844acaba9a2cced
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level58.unity
+    guid: 9155938e9f9b6a44d8acd34c43aa84a3
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level59.unity
+    guid: 656265b65f6b7874bbdf5e0c6f6a403c
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level60.unity
+    guid: ef95bbf7df47054419d5c6b029bf3fb9
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level61.unity
+    guid: c7a9734b324fb2e4ab5e423a38335933
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level62.unity
+    guid: 08eab4f87e3b6384a958f8784b3eb406
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level63.unity
+    guid: ce1c9d41288230849b4aecc6e194f929
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level64.unity
+    guid: e88d910312695044fbd00ac2afbe743e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level65.unity
+    guid: f6a0446af7e46f740934aa53552f7d6f
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level66.unity
+    guid: dcafc41afe40ad14cb812222d5685658
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level67.unity
+    guid: 0781e345123ce384a8aadc4ff303ac1f
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level68.unity
+    guid: 467721abc32660e4382162ceb09c472b
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level69.unity
+    guid: 0213787a682234c44884efcda3c48640
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level70.unity
+    guid: afb55a6fd373f9045ae9696eabf0039f
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level71.unity
+    guid: 4a83cb776c9738b44b4e5daf56aa0a1a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level72.unity
+    guid: b626c92f0fdf3b241940eb5a611c6716
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level73.unity
+    guid: accb5fff8540559469fa4b670025508d
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level74.unity
+    guid: 2edc2ad3b84870e47acc700cf78e82f9
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level75.unity
+    guid: a2ea83554c26da14a8077d1bbb7e6730
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level76.unity
+    guid: f95c0849b98c465419b750ce3c4f835a
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level77.unity
+    guid: 8628cbab343f88d44a5128261d390237
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level78.unity
+    guid: b8a8e695e3ba3ae4bb527fb9026f0b65
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level79.unity
+    guid: 301c2f14a16c37e4bba8c599dd6cdc00
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level80.unity
+    guid: 17ee475068b5dc247bcc62cf13342580
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level81.unity
+    guid: 4b115e760ec03b54585787a73e5da996
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level82.unity
+    guid: ace0db6db4bb25a48bf3905f13ebbc2f
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level83.unity
+    guid: 0490e544a9274574b85014424aa4efee
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level84.unity
+    guid: f3510f5d480b25d41aec4a24d78df43e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level85.unity
+    guid: 310919ff78689504dbce3f95471c0093
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level86.unity
+    guid: 10dec1adb43ebdc4ba6d399be39dc3d9
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level87.unity
+    guid: ded2208301b7c36498bd8afa606aa875
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level88.unity
+    guid: e41c813bc64070149ae0e2d52803375e
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level89.unity
+    guid: 88be7cfa09885784c83ca4bf37668dfa
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level90.unity
+    guid: bbf7872761ccb8f4181e2c6b9586d9a2
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level91.unity
+    guid: ee72c3bd23cfa8741b862040d754fc8f
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level92.unity
+    guid: 9832c95a71a898a4ab54dcf0adf882f6
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level93.unity
+    guid: 054ee1260fedd6b4d86d5d91047da809
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level94.unity
+    guid: 998c4818f39a06f49967f58997ce2b81
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level95.unity
+    guid: e94ca62ec7306b647aee910a9a5899ed
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level96.unity
+    guid: c4ce202dfa3718d4cb8956306d9007e4
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level97.unity
+    guid: ef4cc41e2dfa54b489099f9a1f0ed2a2
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level98.unity
+    guid: afb2425172075254c8d6bf3a7385f9c9
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level99.unity
+    guid: fc3984aa9c1f2c34bb5d29f2146a88f6
+  - enabled: 1
+    path: Assets/Zipline Rescue/Assets/Scenes/levels/level100.unity
+    guid: 91454829991dac34d89ec56b7165db74
+  m_configObjects: {}

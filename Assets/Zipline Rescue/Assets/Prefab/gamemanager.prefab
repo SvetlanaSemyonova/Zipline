@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1576672238965116}
+  m_IsPrefabParent: 1
+--- !u!1 &1576672238965116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4368618510221838}
+  - component: {fileID: 114860262683649692}
+  m_Layer: 0
+  m_Name: gamemanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4368618510221838
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576672238965116}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.45, y: 1.33, z: 0.82421875}
+  m_LocalScale: {x: 5.0532746, y: 5.0532737, z: 5.0532737}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114860262683649692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576672238965116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d347eb8374815164bbe3b04c2fd28d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelno: 0
+  ropeparent: {fileID: 0}
+  wapoints: []
+  peoples:
+  - {fileID: 1366583051848700, guid: 57df900ca8bba3b4cbd91d40cf591560, type: 2}
+  - {fileID: 1050584552586910, guid: 67802788be903b74aaee01963ad00b64, type: 2}
+  - {fileID: 1460865680533744, guid: f11866a226c05d74ca71a4165a1cbd03, type: 2}
+  - {fileID: 1180835702309252, guid: b2a525240c8f1b3478802c2aac59a159, type: 2}
+  - {fileID: 1866438361462570, guid: 822576d683bb093438da89831fe69015, type: 2}
+  - {fileID: 1325522563507588, guid: 98a3439a67db3dd43916f58d64071d6b, type: 2}
+  - {fileID: 1234351137126720, guid: b605f1d16a81f1b488890feeec79a114, type: 2}
+  - {fileID: 1983098841434756, guid: 55a9e2292a5d95441847a3cf7c33d666, type: 2}
+  - {fileID: 1890583924914268, guid: eabcc70ecf2690949a5e1ee441850b8c, type: 2}
+  - {fileID: 1396688543732982, guid: 786d9e6d396b22f4db3ba1f223fcec19, type: 2}
+  locked: 0
+  peopleparent: []
+  reachedpeople: []
+  people: {fileID: 0}
+  childs: 0
+  spawnpeople: 20
+  spawnedno: 0
+  peoplereached: 0
+  posX: 0
+  posY: 0
+  lastpos: {fileID: 0}
+  startpos: {fileID: 0}
+  blood: {fileID: 1388222374496430, guid: 4cd9efa8b43f48d4bb4b882b18c2ac1e, type: 2}
+  sent: 0
+  recived: 0
+  reachedtext: {fileID: 0}
+  peopletofinish: 20
+  completelevel: {fileID: 0}
+  endlevel: {fileID: 0}
