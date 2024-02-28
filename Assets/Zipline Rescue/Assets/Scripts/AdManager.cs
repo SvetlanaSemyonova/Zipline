@@ -85,30 +85,30 @@ public class AdManager : MonoBehaviour
     public void HandleOnAdLoaded(object sender, EventArgs args)
     {
         //ShowAdmobBanner();
-        MonoBehaviour.print("HandleAdLoaded event received");
+        print("HandleAdLoaded event received");
     }
 
     public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
         //		RequestBanner ();
-        MonoBehaviour.print("HandleFailedToReceiveAd event received with message: "
+        print("HandleFailedToReceiveAd event received with message: "
             + args.Message);
     }
 
     public void HandleOnAdOpened(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdOpened event received");
+        print("HandleAdOpened event received");
     }
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
         //		bannerView.Destroy ();
-        MonoBehaviour.print("HandleAdClosed event received");
+        print("HandleAdClosed event received");
     }
 
     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLeavingApplication event received");
+        print("HandleAdLeavingApplication event received");
     }
     #endregion
 
@@ -195,31 +195,31 @@ public class AdManager : MonoBehaviour
     #region AdmobRewardCallBackEvents
     public void HandleRewardBasedVideoLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardBasedVideoLoaded event received");
+        print("HandleRewardBasedVideoLoaded event received");
     }
 
     public void HandleRewardBasedVideoFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        MonoBehaviour.print(
+        print(
             "HandleRewardBasedVideoFailedToLoad event received with message: "
             + args.Message);
     }
 
     public void HandleRewardBasedVideoOpened(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardBasedVideoOpened event received");
+        print("HandleRewardBasedVideoOpened event received");
     }
 
     public void HandleRewardBasedVideoStarted(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardBasedVideoStarted event received");
+        print("HandleRewardBasedVideoStarted event received");
     }
 
     public void HandleRewardBasedVideoClosed(object sender, EventArgs args)
     {
         admanagerInstance.RequestRewardBasedVideo();
 
-        MonoBehaviour.print("HandleRewardBasedVideoClosed event received");
+        print("HandleRewardBasedVideoClosed event received");
     }
 
     //This is called when user completes Admob reward video
@@ -231,7 +231,7 @@ public class AdManager : MonoBehaviour
 
     public void HandleRewardBasedVideoLeftApplication(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardBasedVideoLeftApplication event received");
+        print("HandleRewardBasedVideoLeftApplication event received");
     }
     #endregion     //Reward Events Ends
 }

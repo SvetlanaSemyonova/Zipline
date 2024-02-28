@@ -12,7 +12,7 @@ namespace WrappingRope.Demo
 
             _rope = Rope as GameObject;
             if (_rope != null)
-                _ropeEntity = _rope.GetComponent<Rope>();
+                _ropeEntity = _rope.GetComponent<WrappingRopeLibrary.Scripts.Rope>();
 
         }
 
@@ -25,7 +25,7 @@ namespace WrappingRope.Demo
 
         public GameObject Rope;
         private GameObject _rope;
-        private Rope _ropeEntity;
+        private WrappingRopeLibrary.Scripts.Rope _ropeEntity;
 
 
         void OnGUI()

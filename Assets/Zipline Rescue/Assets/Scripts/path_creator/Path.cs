@@ -2,11 +2,11 @@
 using UnityEngine;
 
 [System.Serializable]
-public class path
+public class Path
 {
     [SerializeField, HideInInspector] List<Vector2> points;
 
-    public path(Vector2 center)
+    public Path(Vector2 center)
     {
         points = new List<Vector2>
         {

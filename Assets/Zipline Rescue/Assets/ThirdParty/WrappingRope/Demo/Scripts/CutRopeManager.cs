@@ -11,18 +11,18 @@ public class CutRopeManager : MonoBehaviour {
     public GameObject RopeInstance1;
 
     public float MinYForDestroy;
-    private Rope _sourceRope;
+    private WrappingRopeLibrary.Scripts.Rope _sourceRope;
 
-    private List<Rope> _ropes;
+    private List<WrappingRopeLibrary.Scripts.Rope> _ropes;
 
     private bool _expandRope;
 
 	// Use this for initialization
 	void Start () {
-        _ropes = new List<Rope>();
+        _ropes = new List<WrappingRopeLibrary.Scripts.Rope>();
 	    if (RopeInstance != null)
         {
-            _sourceRope = RopeInstance.GetComponent<Rope>();
+            _sourceRope = RopeInstance.GetComponent<WrappingRopeLibrary.Scripts.Rope>();
             _sourceRope.ObjectWrap += Rope_ObjectWrapping;
         }
     }
@@ -32,7 +32,7 @@ public class CutRopeManager : MonoBehaviour {
         if (args.WrapPoints.Length == 0)
             return;
 
-        var newRope = Instantiate(RopeInstance1).GetComponent<Rope>();
+        var newRope = Instantiate(RopeInstance1).GetComponent<WrappingRopeLibrary.Scripts.Rope>();
         _ropes.Add(newRope);
 
         // Don't want to wrap
@@ -88,7 +88,7 @@ public class CutRopeManager : MonoBehaviour {
 
     private void ManageOutRopes()
     {
-        var ropesForDestroy = new List<Rope>();
+        var ropesForDestroy = new List<WrappingRopeLibrary.Scripts.Rope>();
         for (var i = 0; i < _ropes.Count; i++)
         {
             var rope = _ropes[i];

@@ -17,18 +17,16 @@ public class Follow : MonoBehaviour
     bool move = true;
     bool add = false;
     Transform lastpos;
-    public camerashake Camerashake;
     int i;
 
     private void Start()
     {
         var go = Instantiate(AudioManager.instance.empty, transform.position, Quaternion.identity);
         Destroy(go, 2f);
-        box = this.gameObject.AddComponent<BoxCollider2D>();
+        box = gameObject.AddComponent<BoxCollider2D>();
         i = 0;
-
         rb = gameObject.GetComponent<Rigidbody2D>();
-        waypoints = gamemanager.Instance.wapoints;
+        waypoints = GameManager.Instance.wapoints;
         end = GameObject.Find("end");
 
         anim = GetComponent<Animator>();
@@ -40,7 +38,7 @@ public class Follow : MonoBehaviour
     private void Update()
     {
         Check();
-        lastpos = gamemanager.Instance.lastpos;
+        lastpos = GameManager.Instance.LastPosition;
         var dis = Vector3.Distance(lastpos.position, transform.position);
         if (dis < .01f)
         {
@@ -49,14 +47,14 @@ public class Follow : MonoBehaviour
             script.enabled = false;
         }
 
-        if (gamemanager.Instance.laser)
+        if (GameManager.Instance.IsLaserActive)
         {
-            gamemanager.Instance.laser = false;
+            GameManager.Instance.IsLaserActive = false;
         }
     }
 
 
-    void Check()
+    private void Check()
     {
         var distance = Vector3.Distance(transform.position, end.transform.position);
         if (distance > .01f && move)
@@ -66,7 +64,7 @@ public class Follow : MonoBehaviour
             box.isTrigger = true;
             if (animations)
             {
-                gamemanager.Instance.playerssent++;
+                GameManager.Instance.playerssent++;
                 anim.SetBool("climb", true);
                 animations = false;
             }
@@ -77,23 +75,23 @@ public class Follow : MonoBehaviour
             box.enabled = false;
             if (i == 0)
             {
-                gamemanager.Instance.reachedpeople.Add(transform);
+                GameManager.Instance.reachedpeople.Add(transform);
                 i = 1;
             }
 
-            gamemanager.Instance.recived--;
+            GameManager.Instance.PeopleRecieved--;
 
             anim.SetBool("climb", false);
-            gamemanager.Instance.ChangeLastPosition(gamemanager.Instance.childs, gamemanager.Instance.lastpos);
+            GameManager.Instance.ChangeLastPosition(GameManager.Instance.Children, GameManager.Instance.LastPosition);
             move = false;
-            gamemanager.Instance.childs++;
-            gamemanager.Instance.posX = transform.position.x;
-            gamemanager.Instance.posY = transform.position.y;
+            GameManager.Instance.Children++;
+            GameManager.Instance.posX = transform.position.x;
+            GameManager.Instance.posY = transform.position.y;
         }
     }
 
 
-    void SpawnPeople()
+    private void SpawnPeople()
     {
         transform.position =
             Vector3.MoveTowards(transform.position, waypoints[waypointindex], movespeed * Time.deltaTime);
@@ -109,26 +107,25 @@ public class Follow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            var go = Instantiate(AudioManager.instance.coin, transform.position, Quaternion.identity);
-            gamemanager.Instance.peoplereached++;
+            Instantiate(AudioManager.instance.coin, transform.position, Quaternion.identity);
         }
 
         if (collision.gameObject.CompareTag("enemy"))
         {
             if (add == false)
             {
-                gamemanager.Instance.recived--;
+                GameManager.Instance.PeopleRecieved--;
                 add = true;
             }
 
             box.enabled = false;
-            var blood = Instantiate(gamemanager.Instance.blood, transform.position, Quaternion.identity);
-            blood.transform.SetParent(this.transform);
+            var blood = Instantiate(GameManager.Instance.GetBloodPrefab(), transform.position, Quaternion.identity);
+            blood.transform.SetParent(transform);
             anim.SetBool("climb", false);
             movespeed = 0;
             if (transform.GetComponent<Rigidbody2D>() == null)
             {
-                rb = this.gameObject.AddComponent<Rigidbody2D>();
+                rb = gameObject.AddComponent<Rigidbody2D>();
                 rb.gravityScale = 1f;
                 var dir = (transform.position - collision.transform.position).normalized;
                 rb.AddForce(dir * thrust, ForceMode2D.Impulse);
@@ -143,19 +140,19 @@ public class Follow : MonoBehaviour
         {
             if (add == false)
             {
-                gamemanager.Instance.recived--;
+                GameManager.Instance.PeopleRecieved--;
                 add = true;
             }
 
-            var exlpode = Instantiate(gamemanager.Instance.exlpode_effect, collision.transform.position,
+            Instantiate(GameManager.Instance.GetExplosionPrefab(), collision.transform.position,
                 Quaternion.identity);
-            var blood = Instantiate(gamemanager.Instance.blood, transform.position, Quaternion.identity);
-            blood.transform.SetParent(this.transform);
+            var blood = Instantiate(GameManager.Instance.GetBloodPrefab(), transform.position, Quaternion.identity);
+            blood.transform.SetParent(transform);
             anim.SetBool("climb", false);
             movespeed = 0;
             if (transform.GetComponent<Rigidbody2D>() == null)
             {
-                rb = this.gameObject.AddComponent<Rigidbody2D>();
+                rb = gameObject.AddComponent<Rigidbody2D>();
                 rb.gravityScale = 1f;
                 var dir = (transform.position - collision.transform.position).normalized;
                 rb.AddForce(transform.right * 7f, ForceMode2D.Impulse);

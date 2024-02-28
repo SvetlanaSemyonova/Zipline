@@ -27,24 +27,20 @@ public class Laser : MonoBehaviour
 
         if (hit.collider.CompareTag("people"))
         {
-            BoxCollider2D box;
-            Follow followscript;
             if (hit.transform.GetComponent<Follow>() != null)
             {
-                box = hit.collider.GetComponent<BoxCollider2D>();
+                var box = hit.collider.GetComponent<BoxCollider2D>();
                 box.enabled = false;
-                followscript = hit.collider.GetComponent<Follow>();
+                var followscript = hit.collider.GetComponent<Follow>();
                 followscript.movespeed = 0;
             }
 
-            Rigidbody2D rb;
-
-            var blood = Instantiate(gamemanager.Instance.blood, hit.collider.gameObject.transform.position,
+            var blood = Instantiate(GameManager.Instance.GetBloodPrefab(), hit.collider.gameObject.transform.position,
                 Quaternion.identity);
             blood.transform.SetParent(hit.collider.transform);
             if (hit.collider.GetComponent<Rigidbody2D>() == null)
             {
-                rb = hit.collider.gameObject.AddComponent<Rigidbody2D>();
+                var rb = hit.collider.gameObject.AddComponent<Rigidbody2D>();
                 rb.gravityScale = 1f;
                 var dir = (transform.position - hit.collider.transform.position).normalized;
                 rb.AddForce(dir * 3f, ForceMode2D.Impulse);

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(pathcreator))]
+[CustomEditor(typeof(PathCreator))]
 public class patheditor : Editor
 {
 
-    pathcreator creator;
-    path Path;
+    PathCreator creator;
+    Path Path;
     private void OnSceneGUI()
     {
         Draw();
@@ -61,10 +61,10 @@ public class patheditor : Editor
 
      void OnEnable()
     {
-        creator = (pathcreator)target;
+        creator = (PathCreator)target;
         if(creator.Path==null)
         {
-            creator.createpath();
+            creator.CreatePath();
 
         }
 

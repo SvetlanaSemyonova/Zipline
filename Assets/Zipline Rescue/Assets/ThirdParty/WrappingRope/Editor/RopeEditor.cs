@@ -15,7 +15,7 @@ using WrappingRopeLibrary.Scripts;
 
 namespace WrappingRopeLibrary.Editors
 {
-    [CustomEditor(typeof(Rope))]
+    [CustomEditor(typeof(Scripts.Rope))]
     public class RopeEditor : Editor
     {
 

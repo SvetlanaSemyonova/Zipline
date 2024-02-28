@@ -8,7 +8,7 @@ namespace WrappingRope.Demo
     {
         public GameObject Rope;
         private GameObject _rope;
-        private Rope _ropeEntity;
+        private WrappingRopeLibrary.Scripts.Rope _ropeEntity;
 
         // Use this for initialization
         void Start()
@@ -39,7 +39,7 @@ namespace WrappingRope.Demo
                 else
                 {
                     _rope = Instantiate(Rope) as GameObject;
-                    _ropeEntity = _rope.GetComponent<Rope>();
+                    _ropeEntity = _rope.GetComponent<WrappingRopeLibrary.Scripts.Rope>();
                 }
                 _isRope = !_isRope;
 

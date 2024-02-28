@@ -4,34 +4,60 @@ using WrappingRopeLibrary.Scripts;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class gamemanager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static gamemanager Instance;
+    public static GameManager Instance;
 
-    [HideInInspector] public List<Vector3> wapoints = new List<Vector3>();
+    [SerializeField] private int ChildrenNumber, spawnpeople;
+    [SerializeField] private int peopletofinish;
+    [SerializeField] private Transform RopeParent;
+    [SerializeField] private Transform StartPosition;
+    [SerializeField] private Text ReachedText;
+    [SerializeField] private Text CurrentLevelText;
+    [SerializeField] private bool Locked;
+    [SerializeField] private bool laser;
+    [SerializeField] private GameObject BloodPrefab;
+    [SerializeField] private GameObject ExplosionEffect;
+    [SerializeField] private GameObject EndLevelPopup, WinLevelPopup, effect;
+    
+    [HideInInspector] public List<Vector3> wapoints = new();
     [HideInInspector] public GameObject[] peoples = new GameObject[10];
     [HideInInspector] public List<Transform> peopleparent = new List<Transform>();
     [HideInInspector] public List<Transform> reachedpeople = new List<Transform>();
-    [HideInInspector] public Transform people;
-    [HideInInspector] public int spawnedno, peoplereached;
+    [HideInInspector] public Transform People;
+    [HideInInspector] public int SpawnedNumber;
     [HideInInspector] public float posX, posY;
-    [HideInInspector] public Transform lastpos;
+    [HideInInspector] public Transform LastPosition;
 
-    public int LevelNumber;
-    public int recived;
-    public int childs, spawnpeople;
-    public int peopletofinish;
+    public int Children
+    {
+        get => ChildrenNumber;
+        set => ChildrenNumber = value;
+    }
+
+    public bool IsLocked
+    {
+        get => Locked;
+        set => Locked = value;
+    }
+
+    public bool IsLaserActive
+    {
+        get => laser;
+        set => laser = value;
+    }
+
+    public int PeopleRecieved
+    {
+        get => recived;
+        set => recived = value;
+    }
+
+    public int LevelNumber => currentLevel;
     public int playerssent = 0;
-    public Transform ropeparent;
-    public Transform startpos;
-    public Text reachedtext;
-    public Text levelshowtext;
-    public bool locked;
-    public bool laser;
-    public GameObject blood;
-    public GameObject exlpode_effect;
-    public GameObject endlevel, completelevel, effect;
 
+    private int currentLevel;
+    private int recived;
     private float time;
     private bool level;
     private bool levelpass;
@@ -41,7 +67,7 @@ public class gamemanager : MonoBehaviour
 
     private void Awake()
     {
-        LevelNumber = PlayerPrefs.GetInt("LevelNumber", 1);
+        currentLevel = PlayerPrefs.GetInt("LevelNumber", 1);
         levelshow = SceneManager.GetActiveScene().buildIndex;
         retryno = SceneManager.GetActiveScene().buildIndex;
         Instance = this;
@@ -49,10 +75,10 @@ public class gamemanager : MonoBehaviour
 
     private void Start()
     {
-        levelshowtext = GameObject.Find("levelshow").GetComponent<Text>();
+        CurrentLevelText = GameObject.Find("levelshow").GetComponent<Text>();
         effect = GameObject.Find("exlposioneffect");
-        completelevel = GameObject.Find("gamewinpanel");
-        endlevel = GameObject.Find("gameoverpanel");
+        WinLevelPopup = GameObject.Find("gamewinpanel");
+        EndLevelPopup = GameObject.Find("gameoverpanel");
         recived = spawnpeople;
         posX = -2.5f;
         posY = -3.2f;
@@ -61,22 +87,32 @@ public class gamemanager : MonoBehaviour
 
         CreatePeople();
         Check();
-        lastpos = GameObject.Find("lastpos").GetComponent<Transform>();
-        completelevel.SetActive(false);
-        endlevel.SetActive(false);
+        LastPosition = GameObject.Find("lastpos").GetComponent<Transform>();
+        WinLevelPopup.SetActive(false);
+        EndLevelPopup.SetActive(false);
         effect.SetActive(false);
-        levelshowtext.text = "L e v e l  " + levelshow;
+        CurrentLevelText.text = "L e v e l  " + levelshow;
     }
 
+    public GameObject GetExplosionPrefab()
+    {
+        return ExplosionEffect;
+    } 
+    
+    public GameObject GetBloodPrefab()
+    {
+        return BloodPrefab;
+    }
+    
     private void Update()
     {
-        reachedtext.text = reachedpeople.Count + "/" + peopletofinish;
+        ReachedText.text = reachedpeople.Count + "/" + peopletofinish;
 
         if (reachedpeople.Count == peopletofinish || reachedpeople.Count >= peopletofinish)
         {
             retrybuttonprefab.SetActive(false);
             PassLevel();
-            completelevel.SetActive(true);
+            WinLevelPopup.SetActive(true);
             effect.SetActive(true);
 
             if (levelpass == true)
@@ -89,7 +125,7 @@ public class gamemanager : MonoBehaviour
         {
             Retry();
 
-            endlevel.SetActive(true);
+            EndLevelPopup.SetActive(true);
         }
     }
 
@@ -97,7 +133,7 @@ public class gamemanager : MonoBehaviour
     {
         if (i == 0)
         {
-            reachedpeople[i].transform.position = lastpos.position;
+            reachedpeople[i].transform.position = LastPosition.position;
         }
         else if (i < 10)
         {
@@ -115,7 +151,7 @@ public class gamemanager : MonoBehaviour
                 limitreached = true;
                 reachedpeople[i].transform.position = new Vector3(posX, posY, 0.8f);
             }
-            else if (limitreached && childs < 20)
+            else if (limitreached && ChildrenNumber < 20)
             {
                 reachedpeople[i].transform.position = new Vector3(posX + .1f, posY, 0.8f);
             }
@@ -145,34 +181,34 @@ public class gamemanager : MonoBehaviour
         {
             if (i == 10)
             {
-                startpos.position =
-                    new Vector3(startpos.position.x - .1f * 10, startpos.position.y, startpos.position.z);
+                StartPosition.position =
+                    new Vector3(StartPosition.position.x - .1f * 10, StartPosition.position.y, StartPosition.position.z);
             }
 
             if (i == 20)
             {
-                startpos.position =
-                    new Vector3(startpos.position.x - .1f * 10, startpos.position.y, startpos.position.z);
+                StartPosition.position =
+                    new Vector3(StartPosition.position.x - .1f * 10, StartPosition.position.y, StartPosition.position.z);
             }
 
             if (LevelNumber < 1)
             {
             }
 
-            startpos.position = new Vector3(startpos.position.x + .1f, startpos.position.y, startpos.position.z);
+            StartPosition.position = new Vector3(StartPosition.position.x + .1f, StartPosition.position.y, StartPosition.position.z);
 
             GameObject go;
             var select = peoples[Random.Range(0, 10)];
             if (i == 0)
             {
-                go = Instantiate(select, startpos.position, startpos.rotation);
+                go = Instantiate(select, StartPosition.position, StartPosition.rotation);
             }
             else
             {
-                go = Instantiate(select, startpos.position, startpos.rotation);
+                go = Instantiate(select, StartPosition.position, StartPosition.rotation);
             }
 
-            go.transform.SetParent(people);
+            go.transform.SetParent(People);
         }
     }
 
@@ -181,9 +217,9 @@ public class gamemanager : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            if (spawnedno < peopleparent.Count)
+            if (SpawnedNumber < peopleparent.Count)
             {
-                ActivatePeople(spawnedno);
+                ActivatePeople(SpawnedNumber);
                 time = .1f;
             }
         }
@@ -193,13 +229,13 @@ public class gamemanager : MonoBehaviour
     void ActivatePeople(int i)
     {
         peopleparent[i].gameObject.GetComponent<Follow>().enabled = true;
-        spawnedno++;
+        SpawnedNumber++;
     }
 
 
     void Check()
     {
-        foreach (Transform addpeople in people)
+        foreach (Transform addpeople in People)
         {
             peopleparent.Add(addpeople);
             for (var i = 0; i < peopleparent.Count; i++)
@@ -212,7 +248,7 @@ public class gamemanager : MonoBehaviour
     public void Calculate()
     {
         var temp = new List<Transform>();
-        foreach (Transform trans in ropeparent)
+        foreach (Transform trans in RopeParent)
         {
             temp.Add(trans);
         }
@@ -250,11 +286,11 @@ public class gamemanager : MonoBehaviour
         SceneManager.LoadScene(retryno);
     }
 
-    public void LoadLevel()
+    private void LoadLevel()
     {
-        LevelNumber++;
-        SceneManager.LoadScene(LevelNumber);
-        PlayerPrefs.SetInt("LevelNumber", LevelNumber);
+        currentLevel++;
+        SceneManager.LoadScene(currentLevel);
+        PlayerPrefs.SetInt("LevelNumber", currentLevel);
         FindObjectOfType<AdManager>().ShowAdmobInterstitial();
     }
 }

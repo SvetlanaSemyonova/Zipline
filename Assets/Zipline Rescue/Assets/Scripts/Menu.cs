@@ -14,7 +14,8 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         var ii = 0;
-
+        var currentLevel = PlayerPrefs.GetInt("LevelNumber", 1);
+        
         foreach (Transform buttons in LevelSelect.transform)
         {
             ii++;
@@ -24,7 +25,7 @@ public class Menu : MonoBehaviour
             levelButtons.interactable = false;
         }
 
-        for (var i = 0; i < gamemanager.Instance.LevelNumber; i++)
+        for (var i = 0; i < currentLevel; i++)
         {
             LevelSelect.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
             var levelButtons = LevelSelect.transform.GetChild(i).GetComponent<Button>();
@@ -46,9 +47,8 @@ public class Menu : MonoBehaviour
         }
     }
 
-    public void Play()
+    public void Play(int levelNumber)
     {
-        levelToLoad = EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex();
-        SceneManager.LoadScene(levelToLoad + 1);
+        SceneManager.LoadScene(levelNumber);
     }
 }

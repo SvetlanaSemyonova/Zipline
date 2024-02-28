@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ropescript : MonoBehaviour
+public class Rope : MonoBehaviour
 {
     public Vector2 destiny, currentpos;
     public float speed = 1;

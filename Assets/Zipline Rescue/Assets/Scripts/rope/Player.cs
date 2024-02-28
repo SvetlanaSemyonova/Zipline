@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
-public class playerscript : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public int touch = 0;
-
-    public bool reached, go;
     BoxCollider2D box;
     public GameObject peopleprefab;
     public Transform poeple, hook;
     public Animator circle;
     public GameObject rope;
-    int count = 0;
 
+    private int count = 0;
+    private int touch = 0;
+    private bool reached, go;
+    
     private void Start()
     {
         box = GetComponent<BoxCollider2D>();
@@ -21,7 +21,6 @@ public class playerscript : MonoBehaviour
 
     private void Update()
     {
-        var pos = new Vector3(transform.position.x, transform.position.y, -0.128f);
         if (reached)
         {
             if (Input.GetMouseButton(0))
@@ -29,23 +28,23 @@ public class playerscript : MonoBehaviour
                 var flag = true;
                 if (flag)
                 {
-                    gamemanager.Instance.HandleTimer();
-                    gamemanager.Instance.locked = true;
+                    GameManager.Instance.HandleTimer();
+                    GameManager.Instance.IsLocked = true;
                     flag = false;
                 }
             }
         }
 
-        if (gamemanager.Instance.locked)
+        if (GameManager.Instance.IsLocked)
         {
-            gamemanager.Instance.Calculate();
+            GameManager.Instance.Calculate();
         }
 
-        mousecntrl();
+        HandleMouseControl();
     }
 
 
-    void mousecntrl()
+    private void HandleMouseControl()
     {
         if (touch < 1)
         {
@@ -70,7 +69,6 @@ public class playerscript : MonoBehaviour
             touch = 0;
         }
     }
-
 
     private void OnMouseDrag()
     {

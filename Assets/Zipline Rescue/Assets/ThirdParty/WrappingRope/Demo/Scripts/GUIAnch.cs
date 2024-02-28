@@ -6,7 +6,7 @@ public class GUIAnch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _ropeEntity = Rope.GetComponent<Rope>();
+        _ropeEntity = Rope.GetComponent<WrappingRopeLibrary.Scripts.Rope>();
 	}
 	
 	// Update is called once per frame
@@ -38,7 +38,7 @@ public class GUIAnch : MonoBehaviour {
     }
  
     public GameObject Rope;
-    private Rope _ropeEntity;
+    private WrappingRopeLibrary.Scripts.Rope _ropeEntity;
  
 
     private bool[] flags = new bool[] { false, false };

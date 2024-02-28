@@ -11,6 +11,6 @@ public class throwrope : MonoBehaviour
     {
         Vector2 destiny = cursor.transform.position;
         currenthook = cursor;
-        currenthook.GetComponent<ropescript>().destiny = destiny;
+        currenthook.GetComponent<Rope>().destiny = destiny;
     }
 }
