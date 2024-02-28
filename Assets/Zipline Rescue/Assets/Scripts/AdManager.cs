@@ -17,7 +17,6 @@ public class AdManager : MonoBehaviour
 
     public static AdManager admanagerInstance = null;
 
-    //These IDs have to be changed to the actual app and ad IDs!!!
     [SerializeField] private string appID = "";
     [SerializeField] private string bannerID = "ca-app-pub-3940256099942544/6300978111";
     [SerializeField] private string interstitialID = "ca-app-pub-3940256099942544/1033173712";
@@ -119,13 +118,11 @@ public class AdManager : MonoBehaviour
         bannerView.Show();
     }
 
-    //Call this to hide banner ad
     public void HideAdmobBanner()
     {
         bannerView.Hide();
     }
 
-    //Call this to show interstitial ad
     public void ShowAdmobInterstitial()
     {
         if (admanagerInstance.interstitialView.IsLoaded())
@@ -134,16 +131,13 @@ public class AdManager : MonoBehaviour
         RequestInterstitial();
     }
 
-    //Call this to show reward video ad
     public void ShowAdmobRewardVideo()
     {
         if (rewardBasedVideoAd.IsLoaded())
         {
             rewardBasedVideoAd.Show();
-            //When completed this function is called : HandleRewardBasedVideoRewarded
         }
     }
-
 
     #region AdmobRequests
     private void RequestBanner()
@@ -191,10 +185,8 @@ public class AdManager : MonoBehaviour
 
     private void RequestRewardBasedVideo()
     {
-        // Create an empty ad request.
         var request = new AdRequest.Builder().Build();
 
-        // Load the rewarded video ad with the request.
         admanagerInstance.rewardBasedVideoAd.LoadAd(request, rewardVideoID);
     }
     #endregion
@@ -242,52 +234,4 @@ public class AdManager : MonoBehaviour
         MonoBehaviour.print("HandleRewardBasedVideoLeftApplication event received");
     }
     #endregion     //Reward Events Ends
-
-
-
-
-    //Uity3D related Events
-
-    //------------------------------------------------------------
-    //UNCOMMENT THE FOLLOWING LINES IF YOU ENABLED UNITY ADS AT UNITY SERVICES AND REOPENED THE PROJECT!
-
-    /*
-//Call this to show video ad
-public void ShowUnityVideoAd()
-{
-    Debug.Log("ShowUnityVideoAd");
-
-    if (Advertisement.IsReady("video"))
-        Advertisement.Show("video");
-}
-
-//Call this to show reward video ad
-public void ShowUnityRewardVideoAd()
-{
-    Debug.Log("ShowUnityRewardVideoAd");
-    if (Advertisement.IsReady("rewardedVideo"))
-    {
-        Debug.Log("Showing Advertisement");
-        var options = new ShowOptions { resultCallback = HandleSHowResult };
-        Advertisement.Show("rewardedVideo", options);
-    }
-}
-
-private void HandleSHowResult(ShowResult result)
-{
-    switch (result)
-    {
-        case ShowResult.Finished:
-            Debug.Log("The Unity Reward ad was shown successfully");
-            FindObjectOfType<RewardButton>().AddReward();       //Adds reward to the player when rewardVideo is finished successfully
-            break;
-        case ShowResult.Skipped:
-            Debug.Log("Ad was skipped");
-            break;
-        case ShowResult.Failed:
-            Debug.LogError("The ad fialed to be shown");
-            break;
-    }
-}
-*/
 }

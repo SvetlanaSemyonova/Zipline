@@ -4,7 +4,6 @@ public class Laser : MonoBehaviour
 {
     public Transform laserpos;
     public GameObject spark;
-
     private LineRenderer line;
     private bool add = true;
 
